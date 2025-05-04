@@ -8,16 +8,17 @@ GroupAdd, programs, ahk_exe idea64.exe
 
 
 ; Change to auto-start the Gui 
+; MUST be changed together !!
 ;   {{{
-global GuiIsOpen := false
-;CreateGui() 
+global GuiIsOpen := true
+CreateGui()
 ;   }}}
 
-;================================================
-; COPY SCRIPT TO StartUp FOLDER FOR AUTORUNNING
-;put this line near the top of your script: 
-    FileCreateShortcut, %A_ScriptFullPath%, %A_Startup%\%A_ScriptName%.lnk, %A_ScriptDir% 
-;=============================================
+; ;================================================
+; ; COPY SCRIPT TO StartUp FOLDER FOR AUTORUNNING
+; ;put this line near the top of your script: 
+;     FileCreateShortcut, %A_ScriptFullPath%, %A_Startup%\%A_ScriptName%.lnk, %A_ScriptDir% 
+; ;=============================================
 
 CreateGui(){
     global
@@ -100,6 +101,6 @@ ToggleGui(){
 
 
 ; Hotkey to show or hide view:
-#IfWinNotActive ahk_group programs
+;#IfWinNotActive ahk_group programs
 F8::ToggleGui()
 
